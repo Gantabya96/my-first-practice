@@ -219,3 +219,194 @@ result: commit changes directly, skipping the staging environment.
 Warning: Skipping the Staging Environment is not generally recommended.
 
 Skipping the stage step can sometimes make you include unwanted changes.
+
+If needed index.lock or any file forcely remove:
+----------------------------------------Start-----------------------------------------------
+command:
+
+rm -f ./.git/index.lock   
+
+result: Will remove index.lock forcely (You can face this problem when you commit message)
+-----------------------------------------End------------------------------------------------
+
+Git Commit Log
+To view the history of commits for a repository, you can use the log command:
+----------------------------------------Start-----------------------------------------------
+command:
+
+git log   
+
+result: commit 2b6126c67d6b86adacc7e2614924b3fce249cd3b (HEAD -> master)
+        Author: gantabya <gantabyakprottoy96@gmail.com>
+        Date:   Fri Aug 18 15:23:33 2023 +0600
+
+          Upfated index.html & git.txt file
+
+        commit 33c25a4eda2ca650dba0df8eb87a8b24650783e5
+        Author: gantabya <gantabyakprottoy96@gmail.com>
+        Date:   Fri Aug 18 14:25:16 2023 +0600
+
+           First Commit
+-----------------------------------------End------------------------------------------------
+
+Git Help
+  If you are having trouble remembering commands or options for commands, you can use Git help.
+  There are a couple of different ways you can use the help command in command line:
+    ----------------------------------------Start-----------------------------------------------
+    command:
+      1. git commit -help    //(See all the available options for the specific command)//
+      2. git help --all      //(See all possible commands)//
+
+    Result: all command and description will show
+    -----------------------------------------End------------------------------------------------
+
+
+----------------------------------------Start-----------------------------------------------------------------------
+
+command:
+
+git commit -help
+
+Note: You can also use --help instead of -help to open the relevant Git manual page
+
+result: usage: git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
+                  [--dry-run] [(-c | -C | --squash) <commit> | --fixup [(amend|reword):]<commit>]
+                  [-F <file> | -m <msg>] [--reset-author] [--allow-empty]
+                  [--allow-empty-message] [--no-verify] [-e] [--author=<author>]
+                  [--date=<date>] [--cleanup=<mode>] [--[no-]status]
+                  [-i | -o] [--pathspec-from-file=<file> [--pathspec-file-nul]]
+                  [(--trailer <token>[(=|:)<value>])...] [-S[<keyid>]]
+                  [--] [<pathspec>...]
+        
+      -q, --quiet           suppress summary after successful commit
+      -v, --verbose         show diff in commit message template
+
+      Commit message options
+         -F, --file <file>               read message from file
+         --author <author>               override author for commit 
+         --date <date>                   override date for commit
+         -m, --message <message>         commit message
+         -c, --reedit-message <commit>   reuse and edit message from specified commit
+         -C, --reuse-message <commit>    reuse message from specified commit
+      --fixup [(amend|reword):]commit    use autosquash formatted message to fixup or amend/reword specified commit
+         --squash <commit>               use autosquash formatted message to squash specified commit
+         --reset-author                  the commit is authored by me now (used with -C/-c/--amend)
+         --trailer <trailer>             add custom trailer(s)
+         -s, --signoff                   add a Signed-off-by trailer
+         -t, --template <file>           use specified template file
+         -e, --edit                      force edit of commit
+         --cleanup <mode>                how to strip spaces and #comments from message
+         --status                        include status in commit message template
+         -S, --gpg-sign[=<key-id>]       GPG sign commit
+
+    Commit contents options:
+         -a, --all                       commit all changed files
+         -i, --include                   add specified files to index for commit
+         --interactive                   interactively add files
+         -p, --patch                     interactively add changes
+         -o, --only                      commit only specified files
+         -n, --no-verify                 bypass pre-commit and commit-msg hooks
+         --dry-run                       show what would be committed
+         --short                         show status concisely
+         --branch                        show branch information
+         --ahead-behind                  compute full ahead/behind values
+         --porcelain                     machine-readable output
+         --long                          show status in long format (default)
+         -z, --null                      terminate entries with NUL
+         --amend                         amend previous commit
+         --no-post-rewrite               bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]       show untracked files, optional modes: all, normal, no. (Default: all)
+    --pathspec-from-file <file>          read pathspec from file
+    --pathspec-file-nul              with --pathspec-from-file, pathspec elements are separated with NUL character
+
+-----------------------------------------End-----------------------------------------------------------------------
+-------------------------------------------------------------------
+If you use 
+            git help -all command
+                                    will see you all command of Git.
+--------------------------------------------------------------------
+
+Git Branch
+  Git-এ, একটি Branch হল main repository এর একটি new/Separate version ।
+  ধরা যাক(Let's say) আপনার একটি large project রয়েছে এবং আপনাকে এটির design update করতে হবে।
+
+  এটি কীভাবে Git ছাড়া এবং এর সাথে কাজ করবে:
+
+  Git ছাড়া:
+    > live version এ প্রভাব এড়াতে(avoid impacting) সমস্ত প্রাসঙ্গিক ফাইলের(all the relevant files) Copy তৈরি করুন
+    > Start working with the design and সেই Code টি অন্যান্য file এর code এর উপর নির্ভর করে দেখুন, এটিও(that also) change করা দরকার!
+    > নির্ভরশীল file গুলির copy তৈরি করুন। প্রতিটি file নির্ভরতা(dependency) সঠিক ফাইলের নাম উল্লেখ(references) করে তা নিশ্চিত করা
+    > EMERGENCY! project এর অন্য কোথাও(somewhere else) একটি অসংলগ্ন(unrelated) error রয়েছে যা শীঘ্রই fixed করা দরকার!
+    > আপনার(your) all files save করুন, আপনি যে copy গুলিতে কাজ করছেন তার নামের একটি note তৈরি করুন
+    > Work on the unrelated error and এটি fix করতে code update করুন
+    > Go back to the design, and finish the work there
+    > Copy the code or rename the files, যাতে update করা design টি live version এ থাকে
+    > (2 weeks later, আপনি বুঝতে(realize) পারবেন যে নতুন ডিজাইন সংস্করণে unrelated error টি fix করা হয়নি because আপনি fix করার আগে file গুলি copy করেছেন)
+
+  With Git:
+    > New-design নামে একটি নতুন branch এর সাথে, main branch কে impact না করে direct code টি edit করুন
+    > EMERGENCY! project এর অন্য কোথাও(somewhere else) একটি অসংলগ্ন(unrelated) error রয়েছে যা শীঘ্রই fixed করা দরকার!
+    > Create a new branch from the main project called small-error-fix(ছোট-এরর-ফিক্স নামক)
+    > Fix the unrelated error এবং small-error-fix branch টিকে main branch এর সাথে merge(একত্রিত) করুন
+    > Go back to the new-design branch, and finish the work there
+    > new-design branch টিকে main এর সাথে Merge(একীভূত) করুন (আপনি যে small error fix টি হারিয়েছিলেন(were missing) সে সম্পর্কে সতর্ক হওয়া(getting alerted))
+
+  Branches allow you to work on different parts of a project without impacting the main branch.
+  When the work is complete, a branch can be merged with the main project.
+  You can even switch between branches and work on different projects without them interfering with each other.
+  Branching in Git is very lightweight and fast!
+
+New Git Branch
+  Let add some new features to our index.html page.
+  We are working in our local repository, and we do not want to disturb or possibly wreck the main project.
+  So we create a new branch:
+  ----------------------------------------Start-----------------------------------------------
+  command:
+
+  git branch second-branch  
+
+  result: created a new branch called "second-branch"
+  -----------------------------------------End------------------------------------------------
+
+  Let's confirm that we have created a new branch:
+  ----------------------------------------Start-----------------------------------------------
+  command:
+
+  git branch 
+
+  result: * master
+            second-branch
+  -----------------------------------------End------------------------------------------------
+
+We can see the new branch with the name "hello-world-images", but the * beside master specifies that we are currently on that branch.
+
+checkout is the command used to check out a branch. Moving us from the current branch, to the one specified at the end of the command:
+  ----------------------------------------Start-----------------------------------------------
+  command:
+
+  git checkout second-branch 
+
+  result: Switched to branch 'second-branch'
+  -----------------------------------------End------------------------------------------------
+
+Now we have moved our current workspace from the master branch, to the new branch
+Open your editor and make some changes.
+  example, we added an h2 tag in index.html:
+     <h2>for 2nd branch</h2>
+
+We have made changes to a file and added a new file in the working directory (same directory as the main branch).
+
+Now check the status of the current branch
+
+So let's go through what happens here:
+
+There are changes to our index.html, but the file is not staged for commit
+<h2>for 2nd branch</h2> is not tracked
+So we need to add both files to the Staging Environment for this branch:
+  ----------------------------------------Start-----------------------------------------------
+  command:
+
+  git add --all
+
+  result: Switched to branch 'second-branch'
+  -----------------------------------------End------------------------------------------------
