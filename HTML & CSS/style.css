@@ -1,0 +1,240 @@
+#myDiv1, #myDiv2 {
+    background-color: coral;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #000000;
+  }
+  
+  #myP1, #myP2 {
+    background-color: white; 
+    font-size: 20px;
+    border: 1px solid;
+    padding: 10px;
+  }
+
+  .padad {
+    padding-top: 20px;
+    padding-bottom: 2px;
+    font-size: 30px;
+    font-weight: 900;
+    margin-left: 20px;
+  }
+
+  canvas {
+    margin-left: 20px;
+    padding: 50px;
+    border: 2px solid #000;
+  }
+
+  /*------CSS Great Font Pairings----------------*/
+  /*
+  1. Use the "Georgia" font for headings, and "Verdana" for text
+  2. Use the "Helvetica" font for headings, and "Garamond" for text
+  3. Use the "Merriweather" font for headings, and "Open Sans" for text
+  4. Use the "Ubuntu" font for headings, and "Lora" for text
+  5. Use the "Abril Fatface" font for headings, and "Poppins" for text
+  6. Use the "Cinzel" font for headings, and "Fauna One" for text
+  7. Use the "Fjalla One" font for headings, and "Libre Baskerville" for text
+  8. Use the "Space Mono" font for headings, and "Muli" for text
+  9. Use the "Spectral" font for headings, and "Rubik" for text
+  10. Use the "Oswald" font for headings, and "Noto Sans" for text
+  */
+
+  /*----------CSS Lists------------
+
+  ul.a {
+  list-style-type: circle;
+}
+
+ul.b {
+  list-style-type: square;
+}
+
+ol.c {
+  list-style-type: upper-roman;
+}
+
+ol.d {
+  list-style-type: lower-alpha;
+}
+
+--------for image----
+ul {
+  list-style-image: url('sqpurple.gif');
+}
+
+list-style-position: outside
+
+list-style-position: inside
+
+list-style-type: none;
+
+----------Shorthand property------
+
+list-style: square inside url("sqpurple.gif");
+
+------------------table----------
+
+border-collapse: collapse;
+
+--------------Hoverable Table----------
+
+tr:hover {background-color: coral;}
+
+-----For zebra-striped tables, use the nth-child() selector and add a background-color to all even (or odd) table rows:----
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+/*-------------------CSS Attribute Selectors--------------
+CSS [attribute="value"] Selector
+
+a[target="_blank"]
+
+The [attribute~="value"] selector is used to select elements with an attribute value containing a specified word.
+
+Example
+[title~="flower"] {
+  border: 5px solid yellow;
+}
+
+The [attribute|="value"] selector is used to select elements with the specified attribute, whose value can be exactly the specified value, or the specified value followed by a hyphen (-).
+
+Example
+[class|="top"] {
+  background: yellow;
+}
+
+The [attribute^="value"] selector is used to select elements with the specified attribute, whose value starts with the specified value.
+
+[class^="top"] {
+  background: yellow;
+}
+
+The [attribute$="value"] selector is used to select elements whose attribute value ends with a specified value.
+
+Example
+[class$="test"] {
+  background: yellow;
+}
+
+The [attribute*="value"] selector is used to select elements whose attribute value contains a specified value.
+
+Example
+[class*="te"] {
+  background: yellow;
+}
+*/
+
+/*
+-----------Styling Forms-----------------
+The attribute selectors can be useful for styling forms without class or ID:
+
+Example
+input[type="text"] {
+  width: 150px;
+  display: block;
+  margin-bottom: 10px;
+  background-color: yellow;
+}
+
+input[type="button"] {
+  width: 120px;
+  margin-left: 35px;
+  display: block;
+}
+
+The example above applies to all <input> elements. If you only want to style a specific input type, you can use attribute selectors:
+
+input[type=text] - will only select text fields
+input[type=password] - will only select password fields
+input[type=number] - will only select number fields
+
+*/
+
+/*
+--------CSS Counters----------
+
+Automatic Numbering With Counters
+CSS counters are like "variables". The variable values can be incremented by CSS rules (which will track how many times they are used).
+
+To work with CSS counters we will use the following properties:
+
+counter-reset - Creates or resets a counter
+counter-increment - Increments a counter value
+content - Inserts generated content
+counter() or counters() function - Adds the value of a counter to an element
+To use a CSS counter, it must first be created with counter-reset.
+
+The following example creates a counter for the page (in the body selector), then increments the counter value for each <h2> element and adds "Section <value of the counter>:" to the beginning of each <h2> element:
+
+Example
+body {
+  counter-reset: section;
+}
+
+h2::before {
+  counter-increment: section;
+  content: "Section " counter(section) ": ";
+}
+
+----Nesting Counters-----
+body {
+  counter-reset: section;
+}
+
+h1 {
+  counter-reset: subsection;
+}
+
+h1::before {
+  counter-increment: section;
+  content: "Section " counter(section) ". ";
+}
+
+h2::before {
+  counter-increment: subsection;
+  content: counter(section) "." counter(subsection) " ";
+}
+
+*/
+
+/*-----------------------------------------------------------------------------------------------------------
+tag এ class অ্যাড করা হলে tag এর চেয়ে class কে অগ্রাধিকার দেওয়া হয়। tag এবং class এ একই CSS property লেখা হলে class এর CSS টা apply হবে। 
+ID, Class, এবং Tag একসাথে থাকলে ID অগ্রাধিকার পাবে। 
+Inline CSS করলে inline CSS অগ্রাধিকার পাবে।
+-----------------------------------------------------------------------------------------------
+Specificity Hierarchy
+
+  1. Inline styles - Example: <h1 style="color: pink;">
+  2. IDs - Example: #navbar
+  3. Classes, pseudo-classes, attribute selectors - Example: .test, :hover, [href]
+  4. Elements and pseudo-elements - Example: h1, ::before
+---------------------------------------------------------------------------------------------------------
+সমান নির্দিষ্টতা: সর্বশেষ নিয়ম জয়ী হয় - যদি একই নিয়মটি বহিরাগত স্টাইল শীটে দুবার লেখা হয়, তাহলে সর্বশেষ নিয়মটি জয়ী হয়:
+  Example:
+    h1 {background-color: yellow;}  / Not Happend /
+    h1 {background-color: red;}     / Will Happend /
+
+---------------------------------------------------------------------------------------------------
+ID selectors have a higher specificity than attribute selectors - Look at the following three code lines:
+  Example:
+    div#a {background-color: green;}
+    #a {background-color: yellow;}
+    div[id=a] {background-color: blue;}
+
+  the first rule is more specific than the other two, and will therefore be applied.
+--------------------------------------------------------------------------------------------------------
+Contextual selectors are more specific than a single element selector - The embedded style sheet is closer to the element to be styled. So in the following situation
+
+  Example:
+    From external CSS file:
+      #content h1 {background-color: red;}
+
+    In HTML file:
+      <style>
+      #content h1 {background-color: yellow;}
+      </style>
+
+  the latter rule will be applied.
+-------------------------------------------------------------------------------------------------
+*/
