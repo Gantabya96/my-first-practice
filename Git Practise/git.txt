@@ -230,7 +230,38 @@ Emergency Branch
 -----------------------------------------------------------------------------------
 command:
 
-git commit -a -m "Upfated index.html & git.txt file"   
+git checkout -b emergency-fix   
 
-result: commit changes directly, skipping the staging environment.
+result: Switched to a new branch 'emergency-fix' (Emergency Branch)
 ------------------------------------------------------------------------------------
+Now we have created a new branch from master, and changed to it. We can safely fix the error without disturbing the other branches.
+
+We have made changes in this file, and we need to get those changes to the master branch.
+
+Now we have a fix ready for master, and we need to merge the two branches.
+
+Git Branch Merge
+  We have the emergency fix ready, and so let's merge the master and emergency-fix branches.
+  First, we need to change to the master branch:
+
+-----------------------------------------------------------------------------------
+command:
+
+git merge emergency-fix   
+
+result: Changed up to date file from emergency-fix branch to master branch
+------------------------------------------------------------------------------------
+
+Since the emergency-fix branch came directly from master, and no other changes had been made to master while we were working, Git sees this as a continuation of master. So it can "Fast-forward", just pointing both master and emergency-fix to the same commit.
+
+যেহেতু মাস্টার এবং ইমার্জেন্সি-ফিক্স এখন মূলত একই, আমরা ইমার্জেন্সি-ফিক্স মুছে দিতে পারি, কারণ এটির আর প্রয়োজন নেই:
+-----------------------------------------------------------------------------------
+command:
+
+git branch -d emergency-fix   
+
+result: Deleted branch emergency-fix (was 47b4504). (Emergency Branch)
+------------------------------------------------------------------------------------
+
+Merge Conflict
+Now we can move over to hello-world-images and keep working. Add another image file (img_hello_git.jpg) and change index.html, so it shows it:
