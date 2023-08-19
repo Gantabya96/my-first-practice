@@ -408,5 +408,20 @@ So we need to add both files to the Staging Environment for this branch:
 
   git add --all
 
-  result: Switched to branch 'second-branch'
+  result: added all files all changed (new, modified, and deleted) files.
   -----------------------------------------End------------------------------------------------
+
+  Using --all instead of individual filenames will Stage all changed (new, modified, and deleted) files.
+
+  We are happy with our changes. So we will commit them to the branch:
+  ----------------------------------------Start-----------------------------------------------
+  command:
+
+  git commit -m "added h2 tag in html"
+
+  result: added all files all changed (new, modified, and deleted) files.
+  -----------------------------------------End------------------------------------------------
+
+  Now we have a new branch, that is different from the master branch.
+  
+Note: Using the -b option on checkout will create a new branch, and move to it, if it does not exist
