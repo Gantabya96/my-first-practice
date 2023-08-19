@@ -1,2 +1,2 @@
 # my-first-practice
-<h3>add some change</h3>
+<h3>add some changes</h3>
