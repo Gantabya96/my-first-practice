@@ -472,5 +472,88 @@ result: Deleted branch emergency-fix (was 47b4504). (Emergency Branch)
 Merge Conflict
 Now we can move over to hello-world-images and keep working. Add another image file (img_hello_git.jpg) and change index.html, so it shows it:
 
+The conflict has been fixed, and we can use commit to conclude the merge:
 
+Now, we are done with our work here and can stage and commit for this branch:
+     git add --all
+     git commit -m "added new image"
+
+We see that index.html has been changed in both branches. Now we are ready to merge second-branch into master. But what will happen to the changes we recently made in master?
+      git checkout master
+      git merge second-branch
+
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+The merge failed, as there is conflict between the versions for index.html. Let us check the status:
+      git status
+
+This confirms there is a conflict in index.html, but the change files are ready and staged to be committed.
+
+So we need to fix that conflict. Open the file in our editor:
+
+We can see the differences between the versions and edit it like we want:
+
+Now we can stage index.html and check the status:
+      git add index.html
+      git status
+
+The conflict has been fixed, and we can use commit to conclude the merge:
+      git commit -m "merged with second-branch after fixing conflicts"
+
+And delete the second-branch (Branch):
+      git branch -d second-branch
+
+
+Now you have a better understanding of how branches and merging works. Time to start working with a remote repository!
+
+
+Git GitHub Getting Started
+
+  First, Create a Github account. If you have an account that fine.
+
+Note: Remember to use the same e-mail address you used in the Git config.
+
+Create a Repository on GitHub
+  Now that you have made a GitHub account, sign in, and create a new Repo:
+        Check Screenshot: https://prnt.sc/bq6FTAs6yhmq
+
+  And fill in the relevant details:
+        Check Screenshot: https://prnt.sc/8ISVrnnqUIim
+
+We will go over the different options and what they mean later. But for now, choose Public (if you want the repo to be viewable for anyone) or Private (if you want to choose who should be able to view the repo). Either way, you will be able to choose who can contribute to the repo.
+
+Then click "Create repository".
+  We will go over the different options and what they mean later. 
+  কিন্তু আপাতত, choose Public (if you want the repo to be viewable for anyone) or Private (if you want to choose who should be able to view the repo). 
+  যেভাবেই হোক(Either way), you will be able to choose কে(who) পারে(can) অবদান(contribute) রাখতে repo তে.
+
+Push Local Repository থেকে(to) GitHub
+  Since we have already set up a local Git repo, we are going to push that to GitHub:
+           Check Screenshot: https://prnt.sc/D9VzVeDhHQqE
+
+Copy the URL, or click the clipboard marked in the image above.
+Now paste it the following command:
+            Check Screenshot: https://prnt.sc/IW7HwQeJg8Md
+
+-----------------------------------------------------------------------------------
+command:
+
+git remote add origin https://github.com/Gantabya96/my-first-practice.git   
+
+result: git remote add origin URL specifies that you are adding a remote repository, with the specified URL, as an origin to your local Git repo.
+------------------------------------------------------------------------------------
+
+Now we are going to push our master branch to the origin url, and set it as the default remote branch:
+-----------------------------------------------------------------------------------
+command:
+
+git push --set-upstream origin master  
+
+result: Check this Screenshot: https://prnt.sc/rFpQwEp4mVvR
+------------------------------------------------------------------------------------
+
+Note: Since this is the first time you are connecting to GitHub, you will get some kind of notification you to authenticate this connection.
+
+Now, go back into GitHub and see that the repository has been updated:
 
