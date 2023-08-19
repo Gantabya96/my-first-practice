@@ -219,3 +219,18 @@ result: commit changes directly, skipping the staging environment.
 Warning: Skipping the Staging Environment is not generally recommended.
 
 Skipping the stage step can sometimes make you include unwanted changes.
+
+দেখুন branch নিয়ে কাজ করা কতটা easy? এবং কিভাবে এই আপনি different things work করতে পারবেন?
+
+Emergency Branch
+  Now imagine that we are not yet done with second-branch, but we need to fix an error on master.
+  I don't want to mess with master directly, and I do not want to mess with second-branch, since it is not done yet.
+
+  So we create a new branch to deal with the emergency:
+-----------------------------------------------------------------------------------
+command:
+
+git commit -a -m "Upfated index.html & git.txt file"   
+
+result: commit changes directly, skipping the staging environment.
+------------------------------------------------------------------------------------
