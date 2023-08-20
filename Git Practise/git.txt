@@ -650,5 +650,11 @@ result: update our local Git from GitHub
 
 That is how you keep your local Git up to date from a remote repository. In the next chapter, we will look closer at how push works on GitHub.
 
+Git Push to GitHub
+  Let's try making some changes to our local git and pushing them to GitHub.
+
+  Commit the changes:
+  
+
 
 
