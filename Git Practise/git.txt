@@ -556,4 +556,99 @@ result: Check this Screenshot: https://prnt.sc/rFpQwEp4mVvR
 Note: Since this is the first time you are connecting to GitHub, you will get some kind of notification you to authenticate this connection.
 
 Now, go back into GitHub and see that the repository has been updated:
+        Check Screenshot: https://prnt.sc/X7krf5rwtuKP
+
+Edit Code in GitHub
+  In addition to being a host for Git content, GitHub has a very good code editor.
+  Let's try to edit the README.md file in GitHub. Just click the edit button:
+        Screenshot: https://prnt.sc/G-T6qjOsPcwa
+
+Add some changes to the code, and then commit the changes. For now, we will "Commit directly to the master branch".
+Remember to add a description for the commit:
+
+        Screenshot: https://prnt.sc/ASTRnnvbqUNM
+
+Git Pull from GitHub
+  When working as a team on a project, it is important that everyone stays up to date.
+  Any time you start working on a project, you should get the most recent changes to your local copy.
+
+  With Git, you can do that with pull.
+
+  pull is a combination of 2 different commands:
+
+    > fetch
+    > merge
+    
+  Let's take a closer look into how fetch, merge, and pull works.
+
+Git Fetch
+  fetch gets all the change history of a tracked branch/repo.
+  So, on your local Git, fetch updates to see what has changed on GitHub:
+-----------------------------------------------------------------------------------
+command:
+
+git fetch origin  
+
+result: Check this Screenshot: https://prnt.sc/aY5HaKG53CFR
+------------------------------------------------------------------------------------
+
+Now that we have the recent changes, we can check our status:
+
+    Screenshot: https://prnt.sc/RqhbvGeWSBU4
+
+We are behind the origin/master by 1 commit. That should be the updated README.md, but lets double check by viewing the log:
+-----------------------------------------------------------------------------------
+command:
+
+git log origin/master  
+
+result: Check this Screenshot: https://prnt.sc/gDN0fvl_6T4n
+------------------------------------------------------------------------------------
+
+That looks as expected, but we can also verify by showing the differences between our local master and origin/master(আমরা আমাদের local master এবং origin/master এর মধ্যে পার্থক্য দেখিয়েও যাচাই করতে পারি):
+-----------------------------------------------------------------------------------
+command:
+
+git log origin/master  
+
+result: Check this Screenshot: https://prnt.sc/wAcxAQByHjG6 and https://prnt.sc/wKCjE8jBjmO8
+------------------------------------------------------------------------------------
+
+That looks precisely as expected! Now we can safely merge.
+
+Git Merge
+  merge combines the current branch, with a specified branch.
+  We have confirmed that the updates are as expected, and we can merge our current branch (master) with origin/master:
+-----------------------------------------------------------------------------------
+command:
+
+git merge origin/master  
+
+result: Check this Screenshot: https://prnt.sc/8CcPid61d_Fb
+------------------------------------------------------------------------------------
+
+Check our status again to confirm we are up to date:
+    Screenshot: https://prnt.sc/BtybXNFvYr_3
+
+There! Your local git is up to date!
+
+Git Pull
+  But what if you just want to update your local repository, without going through all those steps?
+  pull is a combination of fetch and merge. It is used to pull all changes from a remote repository into the branch you are working on.
+
+  Make another change to the Readme.md file on GitHub.
+    Screenshot: https://prnt.sc/-SciKKokkWjs
+  
+  Use pull to update our local Git:
+-----------------------------------------------------------------------------------
+command:
+
+git merge origin/master  
+
+result: update our local Git from GitHub
+------------------------------------------------------------------------------------
+
+That is how you keep your local Git up to date from a remote repository. In the next chapter, we will look closer at how push works on GitHub.
+
+
 
