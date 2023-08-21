@@ -760,3 +760,11 @@ git pull
 
 result: Already up to date.
 ------------------------------------------------------------------------------------
+
+Now, open your favourite editor and confirm that the changes from the GitHub branch carried over.
+
+That is how you pull a GitHub branch to your local Git.
+
+Push a Branch to GitHub
+  Let's try to create a new local branch, and push that to GitHub.
+  Start by creating a branch, like we did earlier:
