@@ -654,7 +654,109 @@ Git Push to GitHub
   Let's try making some changes to our local git and pushing them to GitHub.
 
   Commit the changes:
-  
+-----------------------------------------------------------------------------------
+command:
 
+git commit -a -m "push git.txt file"  
 
+result: Check Screenshot: https://prnt.sc/xiTHyFlTiDpn
+------------------------------------------------------------------------------------
 
+And check the status:
+  Screenshot: https://prnt.sc/y4gkOXJmjivr
+
+Now push our changes to our remote origin:
+-----------------------------------------------------------------------------------
+command:
+
+git push origin  
+
+result: Check Screenshot: https://prnt.sc/xiTHyFlTiDpn
+------------------------------------------------------------------------------------
+Go to GitHub, and confirm that the repository has a new commit:
+  Screenshot: https://prnt.sc/aX6Swkjcipur
+
+Now, we are going to start working on branches on GitHub.
+
+Create a New Branch on GitHub
+  On GitHub, access your repository and click the "master" branch button.
+  There you can create a new Branch. Type in a descriptive name, and click Create branch:
+    Screenshot: https://prnt.sc/u_ev9GjWXz4r
+
+The branch should now be created and active. You can confirm which branch you are working on by looking at the branch button. See that it now says "html-skeleton" instead of "main"?
+  Screenshot: https://prnt.sc/ixgWPNfkIT2T
+
+Start working on an existing file in this branch. Click the "index.html" file and start editing:
+  Screenshot: https://prnt.sc/A7te2nu5RSBz
+
+After you have finished editing the file, you can click the "Preview changes" tab to see the changes you made highlighted:
+  Screenshot: https://prnt.sc/1X21wAwm7FS5
+
+If you are happy with the change, add a comment that explains what you did, and click Commit changes.
+You now have a new branch on GitHub, updated with some changes!
+
+Pulling a Branch from GitHub
+  Now continue working on our new branch in our local Git.
+  Lets pull from our GitHub repository again so that our code is up-to-date:
+
+-----------------------------------------------------------------------------------
+command:
+
+git pull  
+
+result: Already Up to Date
+------------------------------------------------------------------------------------
+
+Now our main branch is up todate. And we can see that there is a new branch available on GitHub.
+Do a quick status check:
+    Screenshot: https://prnt.sc/7Mi8Rk-dbySH
+
+And confirm which branches we have, and where we are working at the moment:
+-----------------------------------------------------------------------------------
+command:
+
+git branch 
+
+result: *master
+------------------------------------------------------------------------------------
+
+So, we do not have the new branch on our local Git. But we know it is available on GitHub. So we can use the -a option to see all local and remote branches:
+-----------------------------------------------------------------------------------
+command:
+
+git branch -a
+
+result: *master
+         remote/origin/main
+         remote/origin/master
+         remote/origin/new-branch
+------------------------------------------------------------------------------------
+
+Note: branch -r is for remote branches only.
+-----------------------------------------------------------------------------------
+command:
+
+git branch -r
+
+result:  remote/origin/main
+         remote/origin/master
+         remote/origin/new-branch
+------------------------------------------------------------------------------------
+
+We see that the branch html-skeleton is available remotely, but not on our local git. Lets check it out:
+-----------------------------------------------------------------------------------
+command:
+
+git checkout new-branch
+
+result: Screenshot: https://prnt.sc/2z8lJjtkCWjU
+------------------------------------------------------------------------------------
+
+And check if it is all up to date:
+-----------------------------------------------------------------------------------
+command:
+
+git pull
+
+result: Already up to date.
+------------------------------------------------------------------------------------
