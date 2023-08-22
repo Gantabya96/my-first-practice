@@ -819,3 +819,226 @@ To keep the repo from getting overly complicated, you can delete the now unused 
 An after you confirm that the changes from the previous branch were included, delete that as well:
     Screenshot: https://prnt.sc/h4Y3Nipgxo2H
 
+Working using the GitHub Flow  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Explore that how to get the best out of working with GitHub(আপনি শিখবেন কিভাবে GitHub এর সাথে কাজ করে সেরাটা পেতে হয়।).
+  The GitHub flow is a workflow designed to work well with Git and GitHub(গিটহাব ফ্লো হল একটি ওয়ার্কফ্লো যা গিট এবং গিটহাবের সাথে ভালভাবে কাজ করার জন্য ডিজাইন করা হয়েছে।).
+  It focuses on branching and makes it possible for teams to experiment freely, and make deployments regularly(এটি শাখায় ফোকাস করে এবং দলগুলির জন্য অবাধে পরীক্ষা করা এবং নিয়মিতভাবে স্থাপনা করা সম্ভব করে তোলে।).
+
+  The GitHub flow works like this:
+    > Create a new Branch
+    > Make changes and add Commits
+    > Open a Pull Request
+    > Review
+    > Deploy
+    > Merge
+  
+  পূর্ববর্তী অধ্যায়গুলি থেকে এটি কীভাবে কাজ করে সে সম্পর্কে আপনার ইতিমধ্যেই ভাল ধারণা থাকা উচিত। এই অধ্যায়টি বোঝার উপর ফোকাস করে যে কীভাবে প্রবাহটি আপনার জন্য একসাথে কাজ করা সহজ করে তোলে।
+
+Create a New Branch >>>>>>>>>>>>>
+  Git এর main concept হল শাখা। এবং এটি নিয়মের চারপাশে কাজ করে যে master branch সর্বদা স্থাপনযোগ্য(deployable)।
+  তার মানে(That means), আপনি যদি নতুন কিছু চেষ্টা বা পরীক্ষা করতে চান, আপনি একটি নতুন branch তৈরি করুন! branch ব্যবস্থা আপনাকে একটি environment দেয় যেখানে আপনি main branch কে প্রভাবিত না করে change করতে পারেন।
+  When your new branch is ready, it can be reviewed(পর্যালোচনা), discussed, and merged(একীভূত) with the main branch when ready(প্রস্তুত).
+  আপনি যখন একটি new branch তৈরি করেন, আপনি (প্রায় সর্বদা) এটি master branch থেকে তৈরি করতে চান।
+
+
+  Note: Keep in mind that you are working with others. Using descriptive names for new branches, so everyone can understand what is happening(দ্রষ্টব্য: মনে রাখবেন যে আপনি অন্যদের সাথে কাজ করছেন। নতুন শাখার জন্য বর্ণনামূলক নাম ব্যবহার করা, যাতে সবাই বুঝতে পারে কি ঘটছে।).
+
+Make Changes and Add Commits >>>>>>>>>>>>>>
+  After the new branch is created, it is time to get to work. Make changes by adding, editing and deleting files. Whenever you reach a small milestone, add the changes to your branch by commit.
+  Adding commits keeps track of your work. Each commit should have a message explaining what has changed and why. Each commit becomes a part of the history of the branch, and a point you can revert back to if you need to.
+  
+  Note: commit messages are very important! Let everyone know what has changed and why. Messages and comments make it so much easier for yourself and other people to keep track of changes.
+
+Open a Pull Request >>>>>>>>>>>>
+  Pull requests are a key part of GitHub. A Pull Request notifies people you have changes ready for them to consider(বিবেচনা) or review(পর্যালোচনা).
+  You can ask others to review your changes or pull your contribution(অবদান) and merge(একত্রিত) it into their branch.
+
+Review >>>>>>>>>>>
+  যখন একটি pull request করা হয়, তখন যার কাছে branch এর সঠিক(proper) access আছে তার দ্বারা এটি পর্যালোচনা(review) করা যেতে পারে। এখানেই ভালো আলোচনা এবং পরিবর্তনের পর্যালোচনা হয়।
+  Pull request গুলি এমনভাবে design করা হয়েছে যাতে লোকেরা easily একসাথে কাজ করতে পারে এবং একসাথে আরও ভাল result তৈরি করতে পারে!
+  If you receive feedback and continue to improve your changes(change গুলিকে improve করা চালিয়ে যান), you can push your changes with new commits, making further reviews possible.
+
+  Note: GitHub shows new commit and feedback in the "unified(সমন্বিত) Pull Request view".
+
+Deploy >>>>>>>>>>
+  When the pull request has been(করা হয়েছে) reviewed and everything looks good(ভাল দেখায়), it is time for the final testing. GitHub allows you to deploy from a branch for final testing in production before merging with the master branch.
+  If any issues arise(দেখা দেয়), you can undo the changes by deploying the master branch into production again!
+
+  Note: Teams often have dedicated testing environments used for deploying branches.
+
+Merge >>>>>>>>>>>>>
+  After exhaustive-এক্সজুসটিভ(সম্পূর্ণ) testing, you can merge the code into the master branch!
+  Pull Requests keep records of changes to your code, and if you commented and named changes well, you can go back and understand why changes and decisions were made.
+
+  Note: You can add keywords to your pull request for easier searching!
+
+Git GitHub Pages >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Host Your Page on GitHub >>>>>>>>>
+  With GitHub pages, GitHub allows you to host a webpage from your repository. Let's try to use GitHub Pages to host our repository.
+
+Create a New Repository >>>>>>>>
+  Start by signing in to GitHub. GitHub pages need a special name and setup to work, so we start by creating a new repository:
+    Screenshot: https://prnt.sc/xuuVWoUSWwGy
+
+  This repository needs a special name to function as a GitHub page. It needs to be your GitHub username, followed by .github.io:
+    Screenshot: https://prnt.sc/TPD4ioLxcL6v
+
+Push Local Repository to GitHub Pages
+  We add this new repository as a remote for our local repository, we are calling it gh-page (for GitHub Pages).
+  Copy the URL from here:
+    Screenshot: https://prnt.sc/dTxSDBz41KNV
+  
+  And add it as a new remote:
+-----------------------------------------------------------------------------------
+command:
+
+git remote add gh-page https://github.com/Gantabya96/Gantabya96.github.io.git
+
+result: github page added
+------------------------------------------------------------------------------------
+
+নিশ্চিত করুন যে আপনি master branch এ আছেন, then push the master branch to the new remote:
+-----------------------------------------------------------------------------------
+command:
+
+git push gh-page master
+
+result: Screenshot: https://prnt.sc/D-X4PldYE5QD
+------------------------------------------------------------------------------------
+
+Note: If this is the first time you are connecting to GitHub, you will get some kind of notification to authenticate this connection.
+
+Check that the new repository has received all the files:
+    Screenshot: https://prnt.sc/EIb2tbnNP0Md
+
+Check Out Your Own GitHub Page >>
+  That looks good, now click the Settings menu and navigate to the Pages tab:
+      Screenshot: https://prnt.sc/jLKsvG2PeHw-
+
+The GitHub page is created, and you can click the URL to view the result!
+
+Git GitHub Fork >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Add to Someone Else's Repository >>>>>>>>>>>
+  At the heart of Git is collaboration(সহযোগিতা). However, Git does not allow you to add code to someone else's repository without access rights.
+  In these next 3 chapters we will show you how to copy a repository, make changes to it, and suggest those changes be implemented to the original repository.
+  At the end of these chapters, you will have the opportunity to add a message to our public GitHub page: https://gantabya96.github.io/
+
+Fork a Repository >>>>>>>>>>>>
+  A fork is a copy of a repository.
+  This is useful when you want to contribute to someone else's project or start your own project based on theirs.
+  fork is not a command in Git, but something offered in GitHub and other repository hosts. Let's start by logging in to GitHub, and fork our repository: https://github.com/w3schools-test/w3schools-test.github.io
+      Screenshot: https://prnt.sc/YUCySeghgxDy
+
+  Now let's look at how we add a local copy of this for us to work with.
+
+Git Clone from GitHub >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Clone a Fork from GitHub >>>>>>>>>>
+  Now we have our own fork, but only on GitHub. We also want a clone on our local Git to keep working on it.
+  A clone is a full copy of a repository, including all logging and versions of files.
+  Move back to the original repository, and click the green "Code" button to get the URL to clone:
+    Screenshot: https://prnt.sc/54CKgFpWxy4G
+
+  Open your Git bash and clone the repository:
+-----------------------------------------------------------------------------------
+command:
+
+git clone https://github.com/Gantabya96/w3schools-test.github.io.git
+
+result: Screenshot: https://prnt.sc/DlqB0g_DyINV
+------------------------------------------------------------------------------------
+
+Take a look in your file system, and you will see a new directory named after the cloned project:
+    Screenshot: https://prnt.sc/_uk07yjkPV7j
+
+Note: To specify a specific folder to clone to, add the name of the folder after the repository URL, like this: git clone https://github.com/w3schools-test/w3schools-test.github.io.git myfolder
+-----------------------------------------------------------------------------------
+command:
+
+git clone https://github.com/Gantabya96/w3schools-test.github.io.git myFolder
+
+result: Screenshot: https://prnt.sc/Bk26YK3yvPHY
+------------------------------------------------------------------------------------
+
+Navigate to the new directory, and check the status:
+    Screenshot: https://prnt.sc/f4bgocYlS7Cq
+
+And check the log to confirm that we have the full repository data:
+    Screenshot: https://prnt.sc/fayT_DvcdUPr
+
+Now we have a full copy of the original repository.
+
+Configuring Remotes >>>>>>>>>
+  Basically, we have a full copy of a repository, whose origin we are not allowed to make changes to.
+  Let's see how the remotes of this Git is set up:
+-----------------------------------------------------------------------------------
+command:
+
+git remote -v
+
+result: Screenshot: https://prnt.sc/0MlWVF9qdDQN
+------------------------------------------------------------------------------------
+
+We see that origin is set up to the original "w3schools-test" repository, we also want to add our own fork.
+First, we rename the original origin remote:
+-----------------------------------------------------------------------------------
+command:
+
+git remote rename origin upstream
+
+result: Screenshot: https://prnt.sc/OCNITCMIc1Vw
+------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+command:
+
+git remote -v
+
+result: Screenshot: https://prnt.sc/2KuXm6yDNW5M
+------------------------------------------------------------------------------------
+
+Then fetch the URL of our own fork:
+    Screenshot: https://prnt.sc/QaXSIiI-8AuZ
+
+And add that as origin:
+-----------------------------------------------------------------------------------
+command:
+
+git remote add remote https://github.com/Gantabya96/w3schools-test.github.io.git
+
+result: Screenshot: https://prnt.sc/InowPz1UCu4v
+------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+command:
+
+git remote -v
+
+result: Screenshot: https://prnt.sc/FfYujIjexHXI
+------------------------------------------------------------------------------------
+
+Note: According to Git naming conventions, it is recommended to name your own repository origin, and the one you forked for upstream
+
+Now we have 2 remotes:
+  > origin - our own fork, where we have read and write access
+  > upstream - the original, where we have read-only access
+
+Now we are going to make some changes to the code. In the next chapter, we will cover how we suggest those changes to the original repository.
+
+Git GitHub Send Pull Request >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Push Changes to Our GitHub Fork >>>>>>>>
+  We have made a lot of changes to our local Git.
+  Now we push them to our GitHub fork:
+  commit the changes:
+    Screenshot: https://prnt.sc/iTDhQkbqs3Uq
+
+Go to GitHub, and we see that the repository has a new commit. And we can send a Pull Request to the original repository:
+    Screenshot: https://prnt.sc/UiJ-VgnAv721
+
+for forchly remove
+-----------------------------------------------------------------------------------
+command:
+
+git rm -f --cached myFolder
+
+result: Screenshot: https://prnt.sc/FvbeFnz4kIMf
+------------------------------------------------------------------------------------
+
+
