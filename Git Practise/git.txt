@@ -1234,5 +1234,37 @@ Git Revert >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
       Screenshot: https://prnt.sc/8uQ646lM9dO7
 
   Let's make a new commit, where we have "accidentally" deleted a file:
-    
+-----------------------------------------------------------------------------------
+command:
 
+git commit -m "Just a regular update, definitely no accidents here..."
+
+result: deleted file will come back(ফিরে এসো)
+------------------------------------------------------------------------------------   
+Now we have a part in our commit history we want to go back to. Let's try and do that with revert.
+
+Git Revert Find Commit in Log >>>>>>>>
+  First thing, আমরা যে বিন্দুতে ফিরে যেতে চাই তা খুঁজে বের করতে হবে। To do that(এটি করার জন্য), আমাদের log এর মধ্য দিয়ে যেতে হবে।
+  To avoid the very long log list, we are going to use the --oneline option, which gives just one line per commit showing:
+    > The first seven characters of the commit hash
+    > the commit message
+  So let's find the point we want to revert:
+-----------------------------------------------------------------------------------
+command:
+
+git log --oneline
+
+result: will show previous all commit
+------------------------------------------------------------------------------------
+
+We want to revert to the previous commit: 6f3c591 (HEAD -> master) add with revert, and we see that it is the latest commit.
+
+Git Revert HEAD >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  We revert the latest commit using git revert HEAD (revert the latest change,  and then commit), adding the option --no-edit to skip the commit message editor (getting the default revert message):
+-----------------------------------------------------------------------------------
+command:
+
+git log --oneline
+
+result: will show previous all commit
+------------------------------------------------------------------------------------
