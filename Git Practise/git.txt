@@ -1300,7 +1300,7 @@ Git Reset Find Commit in Log >>>>>>>>
  We want to return to the commit: cbf9565 (upstream/master) Added .gitignore, the last one before we started to mess with things.
 
  We reset our repository back to the specific commit using git reset commithash (commithash being the first 7 characters of the commit hash we found in the log):
- -----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 command:
 
 git reset commithash (commithash being the first 7 characters of the commit hash we found in the log):
@@ -1332,4 +1332,30 @@ Git commit --amend >>>>>>>>>>>
 Git Amend Commit Message >>>>
   One of the simplest things you can do with --amend is to change a commit message.
   Let's update the README.md and commit:
+    Screenshot: https://prnt.sc/Vv4tiZKXXdwx
+  
+  Now let's check the log:
+    Screenshot: https://prnt.sc/dfiJtNqdj2CP
+
+  Oh no! the commit message is spelling error. Embarrassing(বিব্রতকর). Let's amend that:
+-----------------------------------------------------------------------------------
+command:
+
+git commit --amend -m "last update git.txt"
+
+result: Screenshot: https://prnt.sc/7PHdqAv9QX7j
+------------------------------------------------------------------------------------
+
+  And re-check the log:
+    Screenshot: https://prnt.sc/g1NP-Ky3Qa8i
+
+  We see the previous commit is replaced with our amended one!
+
+Warning: Messing with the commit history of a repository can be dangerous. It is usually ok to make these kinds of changes to your own local repository. However, you should avoid making changes that rewrite history to remote repositories, especially if others are working with them.
+
+Git Amend Files >>>>>>>>>>>>
+  Adding files with --amend works the same way as above. Just add them to the staging environment before committing.
+
+
+
   
