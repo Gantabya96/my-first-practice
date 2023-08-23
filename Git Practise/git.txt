@@ -1234,5 +1234,102 @@ Git Revert >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
       Screenshot: https://prnt.sc/8uQ646lM9dO7
 
   Let's make a new commit, where we have "accidentally" deleted a file:
-    
+-----------------------------------------------------------------------------------
+command:
 
+git commit -m "Just a regular update, definitely no accidents here..."
+
+result: deleted file will come back(ফিরে এসো)
+------------------------------------------------------------------------------------   
+Now we have a part in our commit history we want to go back to. Let's try and do that with revert.
+
+Git Revert Find Commit in Log >>>>>>>>
+  First thing, আমরা যে বিন্দুতে ফিরে যেতে চাই তা খুঁজে বের করতে হবে। To do that(এটি করার জন্য), আমাদের log এর মধ্য দিয়ে যেতে হবে।
+  To avoid the very long log list, we are going to use the --oneline option, which gives just one line per commit showing:
+    > The first seven characters of the commit hash
+    > the commit message
+  So let's find the point we want to revert:
+-----------------------------------------------------------------------------------
+command:
+
+git log --oneline
+
+result: will show previous all commit
+------------------------------------------------------------------------------------
+
+We want to revert to the previous commit: 6f3c591 (HEAD -> master) add with revert, and we see that it is the latest commit.
+
+Git Revert HEAD >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  We revert the latest commit using git revert HEAD (revert the latest change,  and then commit), adding the option --no-edit to skip the commit message editor (getting the default revert message):
+-----------------------------------------------------------------------------------
+command:
+
+git revert HEAD --no-edit
+
+result: revert to the previous commit
+------------------------------------------------------------------------------------
+Now let's check the log again:
+    Screenshot: https://prnt.sc/-SSBMd4COAQM
+
+Note: To revert to earlier commits, use git revert HEAD~x (x being a number. 1 going back one more, 2 going back two more, etc.)
+-----------------------------------------------------------------------------------
+command:
+
+git revert HEAD~x(x being a number. 1 going back one more, 2 going back two more, etc.)
+
+result: revert to the previous commit according to number
+------------------------------------------------------------------------------------
+
+Git Reset >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  reset is the command we use when we want to move the repository back to a previous commit, discarding(বাতিল করা) any changes made after that commit.
+    Step 1: Find the previous commit:
+      Screenshot: https://prnt.sc/w5OTIyuAG0CC
+    Step 2: Move the repository back to that step:
+      Screenshot: https://prnt.sc/c6sgt6PVi_2_
+  
+  After the previous chapter, we have a part in our commit history we could go back to. Let's try and do that with reset.
+
+Git Reset Find Commit in Log >>>>>>>>
+  First thing, we need to find the point we want to return to. To do that, we need to go through the log.
+  To avoid the very long log list, we are going to use the --oneline option, which gives just one line per commit showing:
+    > The first seven characters of the commit hash - this is what we need to refer to in our reset command.
+    > the commit message
+  So let's find the point we want to reset to:
+    Screenshot: https://prnt.sc/uYzoqFEaUYW-
+
+ We want to return to the commit: cbf9565 (upstream/master) Added .gitignore, the last one before we started to mess with things.
+
+ We reset our repository back to the specific commit using git reset commithash (commithash being the first 7 characters of the commit hash we found in the log):
+ -----------------------------------------------------------------------------------
+command:
+
+git reset commithash (commithash being the first 7 characters of the commit hash we found in the log):
+
+result: revert to the commithash commit according to number
+------------------------------------------------------------------------------------
+
+    Screenshot: https://prnt.sc/Q0H9RJLBinhR
+
+Now let's check the log again:
+    Screenshot: https://prnt.sc/25YmsnIwKLRG
+
+Warning: Messing with the commit history of a repository can be dangerous. It is usually ok to make these kinds of changes to your own local repository. However, you should avoid making changes that rewrite history to remote repositories, especially if others are working with them.
+
+Git Undo Reset >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Even though the commits are no longer showing up in the log, it is not removed from Git.
+  If you know the commit hash you can reset to it:
+    Screenshot: https://prnt.sc/vR_n1kUu4222
+
+  Now let's check the log again:
+    Screenshot: https://prnt.sc/vmdSEjJ8stMO
+
+Git Amend(সংশোধন) >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Git commit --amend >>>>>>>>>>>
+  commit --amend সবচেয়ে recent commit change করতে ব্যবহৃত হয়।
+  It combines(একত্রিত করা) changes in the staging environment with the latest commit, and creates a new commit.
+  This new commit replaces the latest commit entirely(সম্পূর্ণরূপে).
+
+Git Amend Commit Message >>>>
+  One of the simplest things you can do with --amend is to change a commit message.
+  Let's update the README.md and commit:
+  
